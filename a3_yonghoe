@@ -1,0 +1,149 @@
+import matplotlib.pyplot as plt
+
+def factorial(n):
+    num = 1
+    for i in range(1, n+1):
+        num = num * i
+    return num
+
+def combination(n, r):
+    return factorial(n)//(factorial(r) * factorial(n-r))
+
+def binomial(n, r, p):
+    return combination(n, r)*(p**r)*((1-p)**(n-r))
+
+
+P1_1_array = []
+P1_2_array = []
+P1_3_array = []
+P1_4_array = []
+
+P2_1_array = []
+P2_2_array = []
+P2_3_array = []
+P2_4_array = []
+
+P3_1_array = []
+P3_2_array = []
+P3_3_array = []
+P3_4_array = []
+
+n = 20
+p = 1/6
+for i in range(n + 1):
+    P1_1 = binomial(n, i, p)
+    P1_1_array.append(P1_1)
+
+n = 30
+for i in range(n + 1):
+    P1_2 = binomial(n, i, p)
+    P1_2_array.append(P1_2)
+
+n = 40
+for i in range(n + 1):
+    P1_3 = binomial(n, i, p)
+    P1_3_array.append(P1_3)
+
+n = 50
+for i in range(n + 1):
+    P1_4 = binomial(n, i, p)
+    P1_4_array.append(P1_4)
+
+p = 2/6
+n = 20
+for i in range(n + 1):
+    P2_1 = binomial(n, i, p)
+    P2_1_array.append(P2_1)
+
+n = 30
+for i in range(n + 1):
+    P2_2 = binomial(n, i, p)
+    P2_2_array.append(P2_2)
+
+n = 40
+for i in range(n + 1):
+    P2_3 = binomial(n, i, p)
+    P2_3_array.append(P2_3)
+
+n = 50
+for i in range(n + 1):
+    P2_4 = binomial(n, i, p)
+    P2_4_array.append(P2_4)
+
+p = 3/6
+n = 20
+for i in range(n + 1):
+    P3_1 = binomial(n, i, p)
+    P3_1_array.append(P3_1)
+
+n = 30
+for i in range(n + 1):
+    P3_2 = binomial(n, i, p)
+    P3_2_array.append(P3_2)
+
+n = 40
+for i in range(n + 1):
+    P3_3 = binomial(n, i, p)
+    P3_3_array.append(P3_3)
+
+n = 50
+for i in range(n + 1):
+    P3_4 = binomial(n, i, p)
+    P3_4_array.append(P3_4)
+
+get_X_20 = list(range(21))
+get_X_30 = list(range(31))
+get_X_40 = list(range(41))
+get_X_50 = list(range(51))
+
+plt.figure(figsize=(12, 8))
+
+plt.plot(get_X_20, P1_1_array, label="20")
+plt.plot(get_X_30, P1_2_array, label="30")
+plt.plot(get_X_40, P1_3_array, label="40")
+plt.plot(get_X_50, P1_4_array, label="50")
+
+plt.xlabel("Success")
+plt.ylabel("Probability")
+plt.title("p=1/6")
+plt.legend()
+plt.show()
+
+get_X_20 = list(range(21))
+get_X_30 = list(range(31))
+get_X_40 = list(range(41))
+get_X_50 = list(range(51))
+
+plt.figure(figsize=(12, 8))
+
+plt.plot(get_X_20, P2_1_array, label="20")
+plt.plot(get_X_30, P2_2_array, label="30")
+plt.plot(get_X_40, P2_3_array, label="40")
+plt.plot(get_X_50, P2_4_array, label="50")
+
+plt.xlabel("Success")
+plt.ylabel("Probability")
+plt.title("p=2/6")
+plt.legend()
+plt.show()
+
+get_X_20 = list(range(21))
+get_X_30 = list(range(31))
+get_X_40 = list(range(41))
+get_X_50 = list(range(51))
+
+plt.figure(figsize=(12, 8))
+
+plt.plot(get_X_20, P3_1_array, label="20")
+plt.plot(get_X_30, P3_2_array, label="30")
+plt.plot(get_X_40, P3_3_array, label="40")
+plt.plot(get_X_50, P3_4_array, label="50")
+
+plt.xlabel("Success")
+plt.ylabel("Probability")
+plt.title("p=3/6")
+plt.legend()
+plt.show()
+
+# nCr 에서 n = 총 시행횟수, r = 총 성공 횟수
+# n = 총 시행횟수, x = 총 성공 횟수, p = (한번 시행했을 때)성공 확률
